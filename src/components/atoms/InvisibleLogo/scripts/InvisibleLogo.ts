@@ -17,42 +17,22 @@ class InvisibleLogo extends THREE.Object3D {
   constructor(width: number, height: number) {
     super();
 
-    const compositedTxt = new THREE.TextureLoader().load(composited.src);
-    compositedTxt.minFilter = THREE.LinearFilter;
-    compositedTxt.generateMipmaps = false;
-
-    const revealTxt = new THREE.TextureLoader().load(reveal.src);
-    revealTxt.minFilter = THREE.LinearFilter;
-    revealTxt.generateMipmaps = false;
-
-    const grainTxt = new THREE.TextureLoader().load(grain.src);
-    grainTxt.generateMipmaps = false;
-    grainTxt.minFilter = THREE.LinearFilter;
-    grainTxt.wrapS = THREE.RepeatWrapping;
-    grainTxt.wrapT = THREE.RepeatWrapping;
-
-    const noiseTxt = new THREE.TextureLoader().load(noise.src);
-    noiseTxt.generateMipmaps = true;
-    noiseTxt.minFilter = THREE.LinearFilter;
-    noiseTxt.wrapS = THREE.RepeatWrapping;
-    noiseTxt.wrapT = THREE.RepeatWrapping;
-
     this.geometry = new THREE.PlaneGeometry(width, height);
     this.material = new THREE.RawShaderMaterial({
       vertexShader,
       fragmentShader,
       uniforms: {
         uTexture: {
-          value: compositedTxt,
+          value: null,
         },
         uTextureBack: {
-          value: revealTxt,
+          value: null,
         },
         uGrain: {
-          value: grainTxt,
+          value: null,
         },
         uSmoothNoise: {
-          value: noiseTxt,
+          value: null,
         },
         uFactorNoise1: {
           value: 26,
@@ -97,6 +77,11 @@ class InvisibleLogo extends THREE.Object3D {
       depthTest: true,
       depthWrite: false,
       transparent: true,
+      visible: false,
+    });
+
+    this.loadTextures().then(() => {
+      this.material.visible = true;
     });
 
     this.mesh = new THREE.Mesh(this.geometry, this.material);
@@ -104,6 +89,35 @@ class InvisibleLogo extends THREE.Object3D {
     this.renderOrder = 1;
 
     this.add(this.mesh);
+  }
+
+  async loadTextures() {
+    const compositedTxt = await new THREE.TextureLoader().loadAsync(
+      composited.src,
+    );
+    compositedTxt.minFilter = THREE.LinearFilter;
+    compositedTxt.generateMipmaps = false;
+
+    const revealTxt = await new THREE.TextureLoader().loadAsync(reveal.src);
+    revealTxt.minFilter = THREE.LinearFilter;
+    revealTxt.generateMipmaps = false;
+
+    const grainTxt = await new THREE.TextureLoader().loadAsync(grain.src);
+    grainTxt.generateMipmaps = false;
+    grainTxt.minFilter = THREE.LinearFilter;
+    grainTxt.wrapS = THREE.RepeatWrapping;
+    grainTxt.wrapT = THREE.RepeatWrapping;
+
+    const noiseTxt = await new THREE.TextureLoader().loadAsync(noise.src);
+    noiseTxt.generateMipmaps = true;
+    noiseTxt.minFilter = THREE.LinearFilter;
+    noiseTxt.wrapS = THREE.RepeatWrapping;
+    noiseTxt.wrapT = THREE.RepeatWrapping;
+
+    this.material.uniforms.uTexture.value = compositedTxt;
+    this.material.uniforms.uTextureBack.value = revealTxt;
+    this.material.uniforms.uGrain.value = grainTxt;
+    this.material.uniforms.uSmoothNoise.value = noiseTxt;
   }
 
   resize(width: number, height: number) {
