@@ -1,0 +1,80 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "jasmine": true
+  },
+  "extends": [
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "@alxshelepenok/eslint-config",
+    "plugin:astro/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "env": {
+        "node": true,
+        "es2020": true,
+        "astro/astro": true
+      },
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
+    }
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/internal/**/*.ts"
+        ]
+      }
+    ],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": ["/"]
+        }
+      }
+    ],
+    "sort-keys": ["off"],
+    "import/order": ["off"],
+    "sort-imports": ["off"],
+    "comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/quotes": ["error", "double"],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^(preact|path)"],
+          ["^\\u0000"],
+          ["^@?\\w"],
+          ["^[^. ]"],
+          ["^\\."],
+          ["^(images|!!raw-loader)"],
+          ["w*(w*.*css)"]
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

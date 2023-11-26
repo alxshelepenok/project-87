@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":automergeBranch",
+    ":automergeLinters",
+    ":automergeTesters",
+    ":automergeTypes"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^eslint"],
+      "groupName": "eslint"
+    },
+    {
+      "packagePatterns": ["^@astrojs"],
+      "groupName": "astro"
+    },
+    {
+      "packagePatterns": ["^@stylelint"],
+      "groupName": "stylelint"
+    }
+  ],
+  "labels": ["renovate"],
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 16,
+  "rangeStrategy": "bump",
+  "semanticCommits": "enabled"
+}
