@@ -16,7 +16,7 @@
     "format:scss": "stylelint \"src/**/*.scss\" --fix",
     "format:ts": "eslint \"src\" --ext .tsx,.ts,.astro,.mjs --fix && prettier --write .",
     "lint": "npm run lint:ts && npm run lint:scss",
-    "lint:commit": "commitlint --edit",
+    "lint:commit": "commitlint",
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "lint:staged": "lint-staged",
     "lint:ts": "eslint \"src\" --ext .tsx,.ts,.astro,.mjs && prettier --check .",
