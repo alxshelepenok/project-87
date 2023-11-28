@@ -1,9 +1,9 @@
 import * as THREE from "three";
 
-import composited from "../images/composited.jpg";
-import grain from "../images/grain.jpg";
-import noise from "../images/noise.png";
-import reveal from "../images/reveal.png";
+import composited from "../images/composited.jpg?url";
+import grain from "../images/grain.jpg?url";
+import noise from "../images/noise.png?url";
+import reveal from "../images/reveal.png?url";
 import fragmentShader from "./shaders/fragment.glsl";
 import vertexShader from "./shaders/vertex.glsl";
 
@@ -92,23 +92,29 @@ class InvisibleLogo extends THREE.Object3D {
   }
 
   async loadTextures() {
-    const compositedTxt = await new THREE.TextureLoader().loadAsync(
-      composited.src,
+    const compositedTxtPromise = new THREE.TextureLoader().loadAsync(
+      composited,
     );
+
+    const revealTxtPromise = new THREE.TextureLoader().loadAsync(reveal);
+    const grainTxtPromise = new THREE.TextureLoader().loadAsync(grain);
+    const noiseTxtPromise = new THREE.TextureLoader().loadAsync(noise);
+
+    const [compositedTxt, revealTxt, grainTxt, noiseTxt] = await Promise.all([
+      compositedTxtPromise,
+      revealTxtPromise,
+      grainTxtPromise,
+      noiseTxtPromise,
+    ]);
+
     compositedTxt.minFilter = THREE.LinearFilter;
     compositedTxt.generateMipmaps = false;
-
-    const revealTxt = await new THREE.TextureLoader().loadAsync(reveal.src);
     revealTxt.minFilter = THREE.LinearFilter;
     revealTxt.generateMipmaps = false;
-
-    const grainTxt = await new THREE.TextureLoader().loadAsync(grain.src);
     grainTxt.generateMipmaps = false;
     grainTxt.minFilter = THREE.LinearFilter;
     grainTxt.wrapS = THREE.RepeatWrapping;
     grainTxt.wrapT = THREE.RepeatWrapping;
-
-    const noiseTxt = await new THREE.TextureLoader().loadAsync(noise.src);
     noiseTxt.generateMipmaps = true;
     noiseTxt.minFilter = THREE.LinearFilter;
     noiseTxt.wrapS = THREE.RepeatWrapping;
