@@ -48,7 +48,7 @@
     "three": "0.153.0"
   },
   "devDependencies": {
-    "@alxshelepenok/eslint-config": "^1.0.306",
+    "@alxshelepenok/eslint-config": "^1.0.366",
     "@astrojs/ts-plugin": "^1.3.1",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.8.1",
