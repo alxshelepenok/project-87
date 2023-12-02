@@ -75,7 +75,7 @@
     "prettier-plugin-packagejson": "2.4.5",
     "rimraf": "5.0.1",
     "sass": "^1.52.1",
-    "semantic-release": "21.0.7",
+    "semantic-release": "21.1.2",
     "stylelint": "^14.8.5",
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-order": "^5.0.0",
