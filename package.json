@@ -45,7 +45,7 @@
     "glsl-noise": "^0.0.0",
     "glsl-rotate": "^2.0.0",
     "preact": "^10.17.1",
-    "three": "0.153.0"
+    "three": "0.159.0"
   },
   "devDependencies": {
     "@alxshelepenok/eslint-config": "^1.0.366",
@@ -53,7 +53,7 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@types/node": "^18.18.14",
-    "@types/three": "^0.158.3",
+    "@types/three": "^0.159.0",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
     "autoprefixer": "^10.4.16",
