@@ -76,7 +76,7 @@
     "rimraf": "5.0.5",
     "sass": "^1.69.5",
     "semantic-release": "21.1.2",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.11.0",
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.2.0",
