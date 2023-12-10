@@ -41,7 +41,7 @@
     "@astrojs/check": "^0.3.1",
     "@astrojs/preact": "^3.0.1",
     "@preact/signals": "^1.2.2",
-    "astro": "^3.6.0",
+    "astro": "^3.6.4",
     "glsl-noise": "^0.0.0",
     "glsl-rotate": "^2.0.0",
     "preact": "^10.17.1",
