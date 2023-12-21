@@ -38,7 +38,7 @@
     ]
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.2",
+    "@astrojs/check": "^0.3.4",
     "@astrojs/preact": "^3.0.1",
     "@preact/signals": "^1.2.2",
     "astro": "^3.6.4",
