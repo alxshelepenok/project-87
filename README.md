@@ -1,6 +1,6 @@
 # project-87
 
-This is a simple demonstration of a web application that uses the Astro framework with GLSL shaders.
+Simple demonstration of a web application that uses the Astro framework with GLSL shaders.
 
 ## License
 
