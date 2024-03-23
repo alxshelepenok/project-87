@@ -40,7 +40,7 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@astrojs/preact": "^3.0.2",
-    "@preact/signals": "^1.2.2",
+    "@preact/signals": "^1.2.3",
     "astro": "^3.6.5",
     "glsl-noise": "^0.0.0",
     "glsl-rotate": "^2.0.0",
