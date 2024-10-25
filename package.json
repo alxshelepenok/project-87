@@ -52,7 +52,7 @@
     "@astrojs/ts-plugin": "^1.10.3",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.3",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.14",
     "@types/three": "^0.159.0",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
