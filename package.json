@@ -64,7 +64,7 @@
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-astro": "^0.34.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "8.0.3",
     "lint-staged": "^13.3.0",
