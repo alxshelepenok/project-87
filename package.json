@@ -44,7 +44,7 @@
     "astro": "^3.6.5",
     "glsl-noise": "^0.0.0",
     "glsl-rotate": "^2.0.1",
-    "preact": "^10.24.3",
+    "preact": "^10.28.4",
     "three": "0.159.0"
   },
   "devDependencies": {
